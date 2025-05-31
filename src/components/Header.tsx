@@ -16,7 +16,7 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold">
-            <span className="text-white">RAM</span>
+            <span className="text-white">AJAY</span>
             <span className="text-[#00ff41]">.</span>
           </div>
           

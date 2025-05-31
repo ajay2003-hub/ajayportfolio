@@ -13,7 +13,7 @@ const Footer = () => {
             {/* Brand */}
             <div>
               <div className="text-2xl font-bold mb-4">
-                <span className="text-white">RAM</span>
+                <span className="text-white">AJAY</span>
                 <span className="text-[#00ff41]">.</span>
               </div>
               <p className="text-gray-400 leading-relaxed">
@@ -74,7 +74,7 @@ const Footer = () => {
           
           <div className="border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-400">
-              © {currentYear} Ram Maheshwari. All rights reserved.
+              © {currentYear} Ajay Kumar. All rights reserved.
             </p>
           </div>
         </div>
