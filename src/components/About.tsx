@@ -40,10 +40,12 @@ const About = () => {
             
             <div className="flex justify-center">
               <div className="relative">
-                <div className="w-80 h-80 bg-gradient-to-br from-[#00ff41]/20 to-transparent rounded-full flex items-center justify-center">
-                  <div className="w-64 h-64 bg-gray-700 rounded-full flex items-center justify-center text-6xl text-gray-400">
-                    RM
-                  </div>
+                <div className="w-80 h-80 bg-gradient-to-br from-[#00ff41]/20 to-transparent rounded-full flex items-center justify-center p-4">
+                  <img 
+                    src="https://i.postimg.cc/vTShqr5m/ajay-png.jpg" 
+                    alt="Ajay Kumar" 
+                    className="w-64 h-64 rounded-full object-cover border-4 border-[#00ff41]/30"
+                  />
                 </div>
                 <div className="absolute inset-0 rounded-full border-2 border-[#00ff41]/30 animate-pulse"></div>
               </div>
