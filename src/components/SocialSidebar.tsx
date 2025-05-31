@@ -1,13 +1,11 @@
 
 import React from 'react';
-import { Linkedin, Github, Twitter, Youtube } from 'lucide-react';
+import { Linkedin, Github } from 'lucide-react';
 
 const SocialSidebar = () => {
   const socials = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ajay-kumar-24349b335/', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/ajay2003-hub', label: 'GitHub' },
   ];
 
   return (
@@ -16,6 +14,8 @@ const SocialSidebar = () => {
         <a
           key={index}
           href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-gray-400 hover:text-[#00ff41] transition-all duration-300 hover:scale-110 p-2"
           aria-label={social.label}
         >

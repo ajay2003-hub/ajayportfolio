@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Linkedin, Github, Twitter, Youtube } from 'lucide-react';
+import { Linkedin, Github } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -56,17 +56,21 @@ const Footer = () => {
             <div>
               <h3 className="text-white font-semibold mb-4">Follow Me</h3>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-[#00ff41] transition-colors duration-300">
+                <a 
+                  href="https://www.linkedin.com/in/ajay-kumar-24349b335/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#00ff41] transition-colors duration-300"
+                >
                   <Linkedin size={24} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-[#00ff41] transition-colors duration-300">
+                <a 
+                  href="https://github.com/ajay2003-hub" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#00ff41] transition-colors duration-300"
+                >
                   <Github size={24} />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-[#00ff41] transition-colors duration-300">
-                  <Twitter size={24} />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-[#00ff41] transition-colors duration-300">
-                  <Youtube size={24} />
                 </a>
               </div>
             </div>
