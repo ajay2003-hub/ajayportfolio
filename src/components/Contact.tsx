@@ -4,6 +4,8 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useToast } from '../hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,11 +13,58 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        'service_xg74r2g', // Your service ID
+        'template_725el62', // Your template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'ajykumar284@gmail.com', // Your email
+        },
+        'gq2aJavwtPfCNbLUO' // Your public key
+      );
+
+      toast({
+        title: "Success!",
+        description: "Your message has been sent successfully. I'll get back to you soon!",
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -91,6 +140,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400 focus:border-[#00ff41] transition-colors duration-300"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 
@@ -103,6 +153,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400 focus:border-[#00ff41] transition-colors duration-300"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 
@@ -115,14 +166,16 @@ const Contact = () => {
                     rows={5}
                     className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400 focus:border-[#00ff41] transition-colors duration-300 resize-none"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 
                 <Button 
                   type="submit"
-                  className="w-full bg-[#00ff41] text-black hover:bg-[#00ff41]/90 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105"
+                  className="w-full bg-[#00ff41] text-black hover:bg-[#00ff41]/90 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </div>
