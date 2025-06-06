@@ -6,12 +6,23 @@ import { Textarea } from './ui/textarea';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import emailjs from '@emailjs/browser';
+import ObfuscatedEmail from './ObfuscatedEmail';
+import { 
+  sanitizeInput, 
+  validateEmail, 
+  validateName, 
+  validateMessage, 
+  checkRateLimit, 
+  recordSubmission,
+  generateSubmissionId 
+} from '../utils/security';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    honeypot: '' // Anti-bot field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -19,7 +30,21 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.email || !formData.message) {
+    // Check honeypot field (should be empty)
+    if (formData.honeypot) {
+      console.log('Bot detected via honeypot');
+      return;
+    }
+
+    // Sanitize inputs
+    const sanitizedData = {
+      name: sanitizeInput(formData.name),
+      email: sanitizeInput(formData.email),
+      message: sanitizeInput(formData.message)
+    };
+
+    // Validation
+    if (!sanitizedData.name || !sanitizedData.email || !sanitizedData.message) {
       toast({
         title: "Error",
         description: "Please fill in all fields",
@@ -28,38 +53,84 @@ const Contact = () => {
       return;
     }
 
+    if (!validateName(sanitizedData.name)) {
+      toast({
+        title: "Invalid Name",
+        description: "Name must be 2-50 characters and contain only letters, spaces, apostrophes, and hyphens",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!validateEmail(sanitizedData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!validateMessage(sanitizedData.message)) {
+      toast({
+        title: "Invalid Message",
+        description: "Message must be between 10-1000 characters",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Rate limiting check
+    const rateLimitCheck = checkRateLimit();
+    if (!rateLimitCheck.allowed) {
+      const minutes = Math.ceil((rateLimitCheck.timeRemaining || 0) / 60000);
+      toast({
+        title: "Too Many Requests",
+        description: `Please wait ${minutes} minute(s) before submitting again`,
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      const submissionId = generateSubmissionId();
+      
       await emailjs.send(
-        'service_xg74r2g', // Your service ID
-        'template_725el62', // Your template ID
+        'service_xg74r2g',
+        'template_725el62',
         {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: 'ajykumar284@gmail.com', // Your email
+          from_name: sanitizedData.name,
+          from_email: sanitizedData.email,
+          message: sanitizedData.message,
+          submission_id: submissionId,
+          timestamp: new Date().toISOString()
         },
-        'gq2aJavwtPfCNbLUO' // Your public key
+        'gq2aJavwtPfCNbLUO'
       );
+
+      // Record successful submission for rate limiting
+      recordSubmission();
 
       toast({
         title: "Success!",
-        description: "Your message has been sent successfully. I'll get back to you soon!",
+        description: `Your message has been sent successfully. Reference ID: ${submissionId.slice(-6)}`,
       });
 
       // Reset form
       setFormData({
         name: '',
         email: '',
-        message: ''
+        message: '',
+        honeypot: ''
       });
 
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error('Email send error:', error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again or contact me directly.",
+        description: "Failed to send message. Please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -68,9 +139,17 @@ const Contact = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    
+    // Apply length limits
+    let limitedValue = value;
+    if (name === 'name' && value.length > 50) limitedValue = value.slice(0, 50);
+    if (name === 'email' && value.length > 254) limitedValue = value.slice(0, 254);
+    if (name === 'message' && value.length > 1000) limitedValue = value.slice(0, 1000);
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: limitedValue
     });
   };
 
@@ -100,10 +179,7 @@ const Contact = () => {
                   <div className="w-12 h-12 bg-[#00ff41]/10 rounded-lg flex items-center justify-center">
                     <Mail className="text-[#00ff41]" size={24} />
                   </div>
-                  <div>
-                    <div className="text-white font-semibold">Email</div>
-                    <div className="text-gray-400">ajykumar284@gmail.com</div>
-                  </div>
+                  <ObfuscatedEmail />
                 </div>
                 
                 <div className="flex items-center space-x-4">
@@ -131,16 +207,30 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="bg-black/50 p-8 rounded-lg border border-gray-800">
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - hidden from users */}
+                <input
+                  type="text"
+                  name="honeypot"
+                  value={formData.honeypot}
+                  onChange={handleChange}
+                  style={{ display: 'none' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+                
                 <div>
                   <Input
                     type="text"
                     name="name"
-                    placeholder="Your Name"
+                    placeholder="Your Name (2-50 characters)"
                     value={formData.name}
                     onChange={handleChange}
                     className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400 focus:border-[#00ff41] transition-colors duration-300"
                     required
                     disabled={isSubmitting}
+                    maxLength={50}
+                    pattern="[a-zA-Z\s'-]{2,50}"
+                    title="Name must be 2-50 characters and contain only letters, spaces, apostrophes, and hyphens"
                   />
                 </div>
                 
@@ -154,20 +244,26 @@ const Contact = () => {
                     className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400 focus:border-[#00ff41] transition-colors duration-300"
                     required
                     disabled={isSubmitting}
+                    maxLength={254}
                   />
                 </div>
                 
                 <div>
                   <Textarea
                     name="message"
-                    placeholder="Your Message"
+                    placeholder="Your Message (10-1000 characters)"
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
                     className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-400 focus:border-[#00ff41] transition-colors duration-300 resize-none"
                     required
                     disabled={isSubmitting}
+                    maxLength={1000}
+                    minLength={10}
                   />
+                  <div className="text-xs text-gray-500 mt-1 text-right">
+                    {formData.message.length}/1000
+                  </div>
                 </div>
                 
                 <Button 
