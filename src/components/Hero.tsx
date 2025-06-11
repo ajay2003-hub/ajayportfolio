@@ -20,6 +20,10 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const handleDownloadCV = () => {
+    window.open('http://127.0.0.1:5500/resume.html', '_blank');
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
       <div className="container mx-auto px-6 text-center relative z-10">
@@ -52,6 +56,7 @@ const Hero = () => {
             </Button>
             <Button 
               variant="outline"
+              onClick={handleDownloadCV}
               className="border-[#00ff41] text-[#00ff41] hover:bg-[#00ff41] hover:text-black px-8 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105"
             >
               Download CV
