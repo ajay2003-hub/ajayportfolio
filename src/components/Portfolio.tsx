@@ -5,15 +5,6 @@ import { Github, ExternalLink, Star } from 'lucide-react';
 const Portfolio = () => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with React, Node.js, and MongoDB',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop',
-      tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-      github: '#',
-      live: '#',
-      featured: true
-    },
-    {
       title: 'Collaborative Study Planner',
       description: 'A comprehensive study planning platform with group collaboration features',
       image: '/lovable-uploads/5dde20b4-c9ce-45bc-a44d-da86264477f0.png',
@@ -37,8 +28,8 @@ const Portfolio = () => {
       image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop',
       tech: ['Vue.js', 'OpenWeather API', 'Tailwind CSS'],
       github: '#',
-      live: '#',
-      featured: false
+      live: 'https://cloudpointapp.netlify.app',
+      featured: true
     }
   ];
 
