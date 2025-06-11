@@ -54,7 +54,7 @@ const About = () => {
               <div className="relative">
                 <div className="w-80 h-80 bg-gradient-to-br from-[#00ff41]/20 to-transparent rounded-full flex items-center justify-center p-4">
                   <img 
-                    src="https://i.postimg.cc/vTShqr5m/ajay-png.jpg" 
+                    src="/lovable-uploads/880fdf99-648d-4fd8-8263-af19d15256fc.png" 
                     alt="Ajay Kumar" 
                     className="w-64 h-64 rounded-full object-cover border-4 border-[#00ff41]/30 shadow-2xl shadow-[#00ff41]/20"
                   />

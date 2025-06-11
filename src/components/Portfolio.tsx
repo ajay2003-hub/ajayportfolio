@@ -36,7 +36,7 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-20 relative">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Featured <span className="text-[#00ff41]">Projects</span>
@@ -47,7 +47,7 @@ const Portfolio = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div 
                 key={index}
