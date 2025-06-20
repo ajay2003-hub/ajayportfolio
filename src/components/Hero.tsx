@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -28,12 +28,6 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Glowing badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00ff41]/10 border border-[#00ff41]/30 mb-8 backdrop-blur-sm">
-            <Sparkles size={16} className="text-[#00ff41]" />
-            <span className="text-[#00ff41] text-sm font-medium">Available for freelance work</span>
-          </div>
-          
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             {text}
             <span className="animate-pulse text-[#00ff41]">|</span>

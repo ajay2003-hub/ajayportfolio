@@ -10,7 +10,7 @@ const Portfolio = () => {
       image: '/lovable-uploads/5dde20b4-c9ce-45bc-a44d-da86264477f0.png',
       tech: ['React', 'Node.js', 'PostgreSQL', 'Socket.io'],
       github: '#',
-      live: '#',
+      live: 'https://lucky-narwhal-e9b91a.netlify.app',
       featured: true
     },
     {
