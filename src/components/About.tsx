@@ -4,73 +4,104 @@ import { Code2, Globe, Zap } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-gray-900/50 relative">
+    <section id="about" className="w-full py-20 bg-zinc-900 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              About <span className="text-[#00ff41]">Me</span>
-            </h2>
-            <div className="w-24 h-1 bg-[#00ff41] mx-auto mb-4"></div>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Passionate developer creating digital experiences that matter
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a passionate Full Stack Developer with a strong foundation in both frontend and backend technologies. 
-                I specialize in building robust, performant, and scalable web applications using modern tools like React, 
-                Node.js, MongoDB, and Express.
-              </p>
-              
-              <p className="text-lg text-gray-300 leading-relaxed">
-                With a keen eye for detail and a commitment to clean, efficient code, I transform complex problems 
-                into elegant solutions that deliver exceptional user experiences.
-              </p>
-              
-              {/* Enhanced feature cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                <div className="text-center p-4 bg-black/50 rounded-xl border border-gray-800 hover:border-[#00ff41]/50 transition-all duration-300 group">
-                  <Code2 className="mx-auto mb-3 text-[#00ff41] group-hover:scale-110 transition-transform duration-300" size={24} />
+          <div className="rounded-2xl bg-gradient-to-br from-zinc-800/80 to-zinc-900/60 border border-[#00ff41]/20 shadow-xl backdrop-blur-lg px-8 py-14 flex flex-col lg:flex-row items-center justify-between gap-12">
+            {/* Left: Text, Cards, Skills */}
+            <div className="flex-1 flex flex-col justify-center items-start text-left">
+              <h2 className="text-4xl md:text-5xl font-bold mb-5 text-white animate-fade-in">About <span className="text-[#00ff41]">Me</span></h2>
+              <p className="text-lg text-gray-300 mb-8 max-w-xl">I'm a passionate Full Stack Developer with a strong foundation in both frontend and backend technologies. I specialize in building robust, performant, and scalable web applications using modern tools like React, Node.js, MongoDB, and Express.</p>
+              {/* Cards */}
+              <div className="grid grid-cols-2 gap-6 mb-8 w-full max-w-md">
+                <div className="text-center p-6 bg-zinc-900 rounded-xl border border-[#00ff41]/30 shadow group">
+                  <Code2 className="mx-auto mb-3 text-[#00ff41] group-hover:scale-110 transition-transform duration-300" size={32} />
                   <div className="text-2xl font-bold text-[#00ff41] mb-1">10+</div>
-                  <div className="text-gray-400 text-sm">Projects</div>
+                  <div className="text-gray-300 text-sm">Projects</div>
                 </div>
-                <div className="text-center p-4 bg-black/50 rounded-xl border border-gray-800 hover:border-[#00ff41]/50 transition-all duration-300 group">
-                  <Globe className="mx-auto mb-3 text-[#00ff41] group-hover:scale-110 transition-transform duration-300" size={24} />
-                  <div className="text-2xl font-bold text-[#00ff41] mb-1">24/7</div>
-                  <div className="text-gray-400 text-sm">Available</div>
-                </div>
-                <div className="text-center p-4 bg-black/50 rounded-xl border border-gray-800 hover:border-[#00ff41]/50 transition-all duration-300 group">
-                  <Zap className="mx-auto mb-3 text-[#00ff41] group-hover:scale-110 transition-transform duration-300" size={24} />
+                <div className="text-center p-6 bg-zinc-900 rounded-xl border border-[#00ff41]/30 shadow group">
+                  <Zap className="mx-auto mb-3 text-[#00ff41] group-hover:scale-110 transition-transform duration-300" size={32} />
                   <div className="text-2xl font-bold text-[#00ff41] mb-1">Udaipur</div>
-                  <div className="text-gray-400 text-sm">Based in</div>
+                  <div className="text-gray-300 text-sm">Based in</div>
+                </div>
+              </div>
+              {/* Skills */}
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold text-white mb-4">Skills</h3>
+                <div className="flex flex-wrap gap-6">
+                  <div className="flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-10 h-10 mb-2" />
+                    <span className="text-[#00ff41] text-sm">React</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-10 h-10 mb-2" />
+                    <span className="text-[#00ff41] text-sm">Node.js</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-10 h-10 mb-2" />
+                    <span className="text-[#00ff41] text-sm">MongoDB</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" className="w-10 h-10 mb-2 bg-white rounded-full p-1" />
+                    <span className="text-[#00ff41] text-sm">Express</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-10 h-10 mb-2" />
+                    <span className="text-[#00ff41] text-sm">TypeScript</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-10 h-10 mb-2" />
+                    <span className="text-[#00ff41] text-sm">JavaScript</span>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            <div className="flex justify-center">
+            {/* Right: Profile Image */}
+            <div className="flex-1 flex justify-center items-center">
               <div className="relative">
-                <div className="w-80 h-80 bg-gradient-to-br from-[#00ff41]/20 to-transparent rounded-full flex items-center justify-center p-4">
-                  <img 
-                    src="/lovable-uploads/880fdf99-648d-4fd8-8263-af19d15256fc.png" 
-                    alt="Ajay Kumar" 
-                    className="w-64 h-64 rounded-full object-cover border-4 border-[#00ff41]/30 shadow-2xl shadow-[#00ff41]/20"
-                  />
+                {/* Profile image with animation */}
+                <img
+                  src="/lovable-uploads/880fdf99-648d-4fd8-8263-af19d15256fc.png"
+                  alt="Ajay Kumar"
+                  className="w-96 h-96 object-cover rounded-full shadow-2xl animate-image-slide-in"
+                  style={{ position: 'relative', zIndex: 1 }}
+                />
+                {/* Decorative background shapes */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute top-10 left-10 w-32 h-2 bg-[#00ff41]/20 rounded-full opacity-40 rotate-12"></div>
+                  <div className="absolute bottom-10 right-10 w-40 h-2 bg-[#00ff41]/20 rounded-full opacity-30 -rotate-6"></div>
+                  <div className="absolute top-1/2 left-1/2 w-24 h-2 bg-[#00ff41]/10 rounded-full opacity-20 rotate-45"></div>
                 </div>
-                <div className="absolute inset-0 rounded-full border-2 border-[#00ff41]/30 animate-pulse"></div>
-                {/* Floating particles */}
-                <div className="absolute top-10 right-10 w-2 h-2 bg-[#00ff41] rounded-full animate-ping"></div>
-                <div className="absolute bottom-10 left-10 w-1 h-1 bg-[#00ff41] rounded-full animate-ping delay-300"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#00ff41]/5 rounded-full blur-3xl"></div>
+      {/* Fade-in animation */}
+      <style>{`
+        .animate-fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInAbout 1s cubic-bezier(.4,2,.3,1) forwards;
+        }
+        @keyframes fadeInAbout {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-image-slide-in {
+          opacity: 0;
+          transform: translateY(60px) scale(0.95);
+          animation: imageSlideIn 1.2s cubic-bezier(.4,2,.3,1) 0.3s forwards;
+        }
+        @keyframes imageSlideIn {
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+      `}</style>
     </section>
   );
 };

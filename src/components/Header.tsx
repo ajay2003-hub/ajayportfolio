@@ -12,61 +12,34 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-900/95 via-blue-900/95 to-purple-900/95 backdrop-blur-md">
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+      <nav className="max-w-screen-xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between rounded-2xl bg-gradient-to-r from-[#23244a] via-[#2b2e6c] to-[#3a3e8c] shadow-lg px-8 py-3 mt-4 mb-2">
           {/* Logo */}
-          <div className="text-2xl font-bold">
-            <span className="text-white">AJAY</span>
-            <span className="text-purple-400">.</span>
+          <div className="flex items-center gap-3">
+            {/* You can replace this with your own SVG or logo */}
+            <span className="text-3xl font-bold text-[#7b7bff]">&#x21A6;</span>
+            <span className="text-2xl font-bold text-white">Ajay<span className="text-[#7b7bff]">.</span></span>
           </div>
-          
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('home')} 
-              className="text-white/90 hover:text-white hover:scale-105 transition-all duration-300 text-sm font-medium relative group"
-            >
-              Home
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
+          <div className="hidden md:flex items-center gap-8">
+            <button onClick={() => scrollToSection('home')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200">Home</button>
+            <span className="h-8 w-px bg-white/20 mx-2"></span>
+            <button onClick={() => scrollToSection('about')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200 flex items-center gap-2">
+              <span className="inline-block w-2 h-2 bg-[#00ff41] rounded-full"></span>About
             </button>
-            <button 
-              onClick={() => scrollToSection('about')} 
-              className="text-white/90 hover:text-white hover:scale-105 transition-all duration-300 text-sm font-medium relative group"
-            >
-              About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')} 
-              className="text-white/90 hover:text-white hover:scale-105 transition-all duration-300 text-sm font-medium relative group"
-            >
-              Services
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button 
-              onClick={() => scrollToSection('portfolio')} 
-              className="text-white/90 hover:text-white hover:scale-105 transition-all duration-300 text-sm font-medium relative group"
-            >
-              Projects
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button 
-              onClick={() => scrollToSection('skills')} 
-              className="text-white/90 hover:text-white hover:scale-105 transition-all duration-300 text-sm font-medium relative group"
-            >
-              Skills
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')} 
-              className="text-white/90 hover:text-white hover:scale-105 transition-all duration-300 text-sm font-medium relative group"
-            >
-              Contact
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
-            </button>
+            <span className="h-8 w-px bg-white/20 mx-2"></span>
+            <button onClick={() => scrollToSection('services')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200">Services</button>
+            <span className="h-8 w-px bg-white/20 mx-2"></span>
+            <button onClick={() => scrollToSection('portfolio')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200">Projects</button>
+            <span className="h-8 w-px bg-white/20 mx-2"></span>
+            <button onClick={() => scrollToSection('skills')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200">Skills</button>
+            <span className="h-8 w-px bg-white/20 mx-2"></span>
+            <button onClick={() => scrollToSection('contact')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200">Contact</button>
+            <span className="h-8 w-px bg-white/20 mx-2"></span>
+            
+            
           </div>
-
           {/* Mobile Menu Button */}
           <button 
             className="md:hidden text-white hover:scale-110 transition-transform duration-200"
@@ -75,28 +48,20 @@ const Header = () => {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-white/20">
-            <div className="flex flex-col space-y-4 mt-4">
-              <button onClick={() => scrollToSection('home')} className="text-white/90 hover:text-white transition-colors duration-200 text-left text-sm font-medium">
-                Home
+          <div className="md:hidden mt-2 pb-4">
+            <div className="flex flex-col space-y-4 mt-4 bg-gradient-to-r from-[#23244a] via-[#2b2e6c] to-[#3a3e8c] rounded-2xl px-6 py-4 shadow-lg">
+              <button onClick={() => scrollToSection('home')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200 text-left">Home</button>
+              <button onClick={() => scrollToSection('about')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200 text-left flex items-center gap-2">
+                <span className="inline-block w-2 h-2 bg-[#00ff41] rounded-full"></span>About
               </button>
-              <button onClick={() => scrollToSection('about')} className="text-white/90 hover:text-white transition-colors duration-200 text-left text-sm font-medium">
-                About
-              </button>
-              <button onClick={() => scrollToSection('services')} className="text-white/90 hover:text-white transition-colors duration-200 text-left text-sm font-medium">
-                Services
-              </button>
-              <button onClick={() => scrollToSection('portfolio')} className="text-white/90 hover:text-white transition-colors duration-200 text-left text-sm font-medium">
-                Projects
-              </button>
-              <button onClick={() => scrollToSection('skills')} className="text-white/90 hover:text-white transition-colors duration-200 text-left text-sm font-medium">
-                Skills
-              </button>
-              <button onClick={() => scrollToSection('contact')} className="text-white/90 hover:text-white transition-colors duration-200 text-left text-sm font-medium">
-                Contact
+              <button onClick={() => scrollToSection('services')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200 text-left">Services</button>
+              <button onClick={() => scrollToSection('portfolio')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200 text-left">Projects</button>
+              <button onClick={() => scrollToSection('skills')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200 text-left">Skills</button>
+              <button onClick={() => scrollToSection('contact')} className="font-semibold text-white hover:text-[#7b7bff] transition-colors duration-200 text-left">Contact</button>
+              <button className="bg-gray-400/40 text-white font-semibold px-6 py-2 rounded-full flex items-center gap-2 hover:bg-gray-400/60 transition-all duration-200 shadow-md mt-2">
+                Get Started <span className="text-lg">&#x21B7;</span>
               </button>
             </div>
           </div>

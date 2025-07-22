@@ -12,7 +12,7 @@ import SocialSidebar from '../components/SocialSidebar';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+  <div className="min-h-screen bg-zinc-900 text-white overflow-x-hidden">
       <Header />
       <SocialSidebar />
       <main>

@@ -1,8 +1,23 @@
 
 import React from 'react';
+import { useState } from 'react';
 import { Code, Database, Smartphone, Zap, ArrowRight } from 'lucide-react';
 
 const Services = () => {
+  // Color themes for each service
+  const colorTheme = {
+    bg: 'bg-[#23244a]',
+    glow: 'shadow-[0_0_40px_0_#00ff41]',
+    icon: 'text-[#00ff41]',
+    iconActive: 'text-[#00ff41]',
+    title: 'text-white',
+    titleActive: 'text-[#00ff41]',
+    feature: 'bg-[#23244a] text-[#00ff41] border-[#00ff41]/30',
+    featureActive: 'bg-[#23244a] text-[#00ff41] border-[#00ff41]/30',
+    border: 'border-[#00ff41]'
+  };
+
+  const [active, setActive] = useState(-1);
   const services = [
     {
       icon: Code,
@@ -31,67 +46,57 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              What I <span className="text-[#00ff41]">Do</span>
-            </h2>
-            <div className="w-24 h-1 bg-[#00ff41] mx-auto mb-4"></div>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Comprehensive development services to bring your ideas to life
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div 
+    <section id="services" className="py-20 relative overflow-hidden flex justify-center items-center min-h-[350px]">
+      {/* Gradient Stripe Background */}
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+        <div className="w-[90vw] max-w-7xl h-[200px] rounded-3xl bg-gradient-to-r from-[#23244a] via-[#1e2a4f] to-[#1e90ff] opacity-80 shadow-2xl" />
+      </div>
+      <div className="relative w-full flex justify-center items-center">
+        <div className="flex flex-row gap-8 w-[90vw] max-w-7xl px-4 py-8">
+          {services.map((service, index) => {
+            const isActive = active === index;
+            return (
+              <div
                 key={index}
-                className="group p-8 bg-gradient-to-br from-gray-900/80 to-gray-900/40 rounded-2xl border border-gray-800 hover:border-[#00ff41]/50 transition-all duration-500 hover:transform hover:scale-105 backdrop-blur-sm relative overflow-hidden"
+                className={`group flex-1 min-w-[220px] max-w-xs ${colorTheme.bg} rounded-2xl border ${colorTheme.border} shadow-xl backdrop-blur-lg px-8 py-10 flex flex-col items-center justify-center transition-all duration-500 relative cursor-pointer ${isActive ? colorTheme.glow : ''}`}
+                style={{ animationDelay: `${0.2 + index * 0.15}s` }}
+                onClick={() => setActive(index)}
               >
-                {/* Background glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00ff41]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="relative z-10">
-                  <div className="mb-6 flex items-center justify-between">
-                    <div className="p-3 bg-[#00ff41]/10 rounded-xl border border-[#00ff41]/30">
-                      <service.icon 
-                        size={32} 
-                        className="text-[#00ff41] group-hover:scale-110 transition-transform duration-300" 
-                      />
-                    </div>
-                    <ArrowRight className="text-gray-600 group-hover:text-[#00ff41] group-hover:translate-x-2 transition-all duration-300" size={20} />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-4 text-white group-hover:text-[#00ff41] transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-400 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <span 
-                        key={featureIndex}
-                        className="px-3 py-1 bg-[#00ff41]/10 text-[#00ff41] text-xs rounded-full border border-[#00ff41]/30 group-hover:bg-[#00ff41]/20 transition-colors duration-300"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
+                <div className="flex flex-col items-center mb-2">
+                  <service.icon size={isActive ? 44 : 32} className={`mb-2 transition-all duration-300 ${isActive ? colorTheme.iconActive : colorTheme.icon}`} />
+                  <span className={`text-lg font-semibold mb-2 text-center transition-colors duration-300 ${isActive ? colorTheme.titleActive : colorTheme.title}`}>{service.title}</span>
                 </div>
+                <div className={`text-xs text-center mb-2 transition-colors duration-300 text-zinc-300`}>{service.description}</div>
+                <div className="flex flex-wrap gap-2 justify-center mt-2">
+                  {service.features.map((feature, featureIndex) => (
+                    <span
+                      key={featureIndex}
+                      className={`px-3 py-1 rounded-full border text-xs transition-colors duration-300 ${colorTheme.feature}`}
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+                <ArrowRight className={`absolute top-6 right-6 transition-all duration-300 ${isActive ? colorTheme.iconActive : colorTheme.icon} ${isActive ? 'scale-125' : ''}`} size={isActive ? 28 : 20} />
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
-      
-      {/* Background elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-[#00ff41]/3 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#00ff41]/3 rounded-full blur-3xl"></div>
+      {/* Custom Animations */}
+      <style>{`
+        #services .group {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeStripeIn 1s cubic-bezier(.4,2,.3,1) forwards;
+        }
+        @keyframes fadeStripeIn {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 };

@@ -46,8 +46,10 @@ const Skills = () => {
     }
   ];
 
+  // Flatten all skills into a single array
+  const allSkills = skillCategories.flatMap(cat => cat.skills.map(skill => skill.name));
   return (
-    <section id="skills" className="py-20 bg-gray-900/50 relative overflow-hidden">
+    <section id="skills" className="py-20 bg-zinc-900 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -59,56 +61,52 @@ const Skills = () => {
               Technologies and tools I use to bring ideas to life
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {skillCategories.map((category, categoryIndex) => (
-              <div 
-                key={categoryIndex} 
-                className="group p-6 bg-gradient-to-br from-gray-900/80 to-gray-900/40 rounded-2xl border border-gray-800 hover:border-[#00ff41]/50 transition-all duration-300 backdrop-blur-sm relative overflow-hidden"
-              >
-                {/* Background glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00ff41]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="text-2xl">{category.icon}</span>
-                    <h3 className="text-xl font-bold text-[#00ff41] group-hover:text-white transition-colors duration-300">
-                      {category.category}
-                    </h3>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    {category.skills.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <div className="flex items-center gap-2">
-                            <CheckCircle size={14} className="text-[#00ff41]" />
-                            <span className="text-white font-medium text-sm">{skill.name}</span>
-                          </div>
-                          <span className="text-[#00ff41] text-xs bg-[#00ff41]/10 px-2 py-1 rounded-full">
-                            {skill.level}%
-                          </span>
-                        </div>
-                        
-                        <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
-                          <div 
-                            className="bg-gradient-to-r from-[#00ff41] to-[#00ff41]/70 h-2 rounded-full transition-all duration-1000 ease-out shadow-lg shadow-[#00ff41]/30"
-                            style={{ width: `${skill.level}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* Marquee 1: left to right */}
+          <div className="overflow-hidden w-full py-4 mb-6 relative">
+            <div className="flex whitespace-nowrap animate-marquee-ltr gap-8">
+              {allSkills.map((skill, i) => (
+                <span key={i} className="px-6 py-2 bg-zinc-800 rounded-full text-[#00ff41] text-lg font-semibold shadow-lg border border-[#00ff41]/30">{skill}</span>
+              ))}
+              {/* Repeat for infinite effect */}
+              {allSkills.map((skill, i) => (
+                <span key={i + 'r'} className="px-6 py-2 bg-zinc-800 rounded-full text-[#00ff41] text-lg font-semibold shadow-lg border border-[#00ff41]/30">{skill}</span>
+              ))}
+            </div>
+          </div>
+          {/* Marquee 2: right to left */}
+          <div className="overflow-hidden w-full py-4 relative">
+            <div className="flex whitespace-nowrap animate-marquee-rtl gap-8">
+              {allSkills.map((skill, i) => (
+                <span key={i + 'rtl'} className="px-6 py-2 bg-zinc-800 rounded-full text-[#00ff41] text-lg font-semibold shadow-lg border border-[#00ff41]/30">{skill}</span>
+              ))}
+              {/* Repeat for infinite effect */}
+              {allSkills.map((skill, i) => (
+                <span key={i + 'rtl2'} className="px-6 py-2 bg-zinc-800 rounded-full text-[#00ff41] text-lg font-semibold shadow-lg border border-[#00ff41]/30">{skill}</span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-      
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#00ff41]/3 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#00ff41]/3 rounded-full blur-3xl"></div>
+      {/* Marquee Animations */}
+      <style>{`
+        .animate-marquee-ltr {
+          animation: marquee-ltr 22s linear infinite;
+        }
+        @keyframes marquee-ltr {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0%); }
+        }
+        .animate-marquee-rtl {
+          animation: marquee-rtl 22s linear infinite;
+        }
+        @keyframes marquee-rtl {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
     </section>
   );
 };

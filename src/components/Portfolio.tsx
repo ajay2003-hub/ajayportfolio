@@ -9,16 +9,17 @@ const Portfolio = () => {
       description: 'A comprehensive study planning platform with group collaboration features',
       image: '/lovable-uploads/5dde20b4-c9ce-45bc-a44d-da86264477f0.png',
       tech: ['React', 'Node.js', 'PostgreSQL', 'Socket.io'],
-      github: '#',
+      github: 'https://github.com/ajay2003-hub/studyCollabUI',
       live: 'https://lucky-narwhal-e9b91a.netlify.app',
       featured: true
     },
     {
       title: 'Refokus',
       description: 'Refokus is a top Webflow Agency combining high-end design with Webflow Development expertise.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
+  // ...existing code...
+      image: './lovable-uploads/refokus.png',
       tech: ['React.js', 'Animation'],
-      github: '#',
+      github: 'https://github.com/ajay2003-hub/refokus',
       live: 'https://refokuus.netlify.app',
       featured: false
     },
@@ -27,14 +28,14 @@ const Portfolio = () => {
       description: 'Real-time weather application with location-based forecasts',
       image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop',
       tech: ['Vue.js', 'OpenWeather API', 'Tailwind CSS'],
-      github: '#',
+      github: 'https://github.com/ajay2003-hub/wheatherApp',
       live: 'https://cloudpointapp.netlify.app',
       featured: true
     }
   ];
 
   return (
-    <section id="portfolio" className="py-20 relative">
+    <section id="portfolio" className="py-20 bg-zinc-900 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -46,12 +47,12 @@ const Portfolio = () => {
               A showcase of my recent work and technical expertise
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
             {projects.map((project, index) => (
-              <div 
+              <div
                 key={index}
-                className="group bg-gradient-to-br from-gray-900/80 to-gray-900/40 rounded-2xl overflow-hidden border border-gray-800 hover:border-[#00ff41]/50 transition-all duration-500 hover:transform hover:scale-105 backdrop-blur-sm relative"
+                className="group bg-gradient-to-br from-zinc-800/80 to-zinc-900/60 rounded-3xl overflow-hidden border border-[#00ff41]/30 shadow-2xl hover:shadow-[#00ff41]/40 hover:border-[#00ff41] transition-all duration-500 hover:scale-105 backdrop-blur-lg relative animate-fade-in"
+                style={{ animationDelay: `${0.2 + index * 0.15}s` }}
               >
                 {project.featured && (
                   <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-2 py-1 bg-[#00ff41]/20 rounded-full border border-[#00ff41]/50">
@@ -59,30 +60,30 @@ const Portfolio = () => {
                     <span className="text-[#00ff41] text-xs font-medium">Featured</span>
                   </div>
                 )}
-                
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500 rounded-t-3xl"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <a 
+                    <a
                       href={project.github}
                       className="p-3 bg-[#00ff41] text-black rounded-full hover:bg-[#00ff41]/90 transition-all duration-300 hover:scale-110 shadow-lg"
+                      target="_blank" rel="noopener noreferrer"
                     >
                       <Github size={20} />
                     </a>
-                    <a 
+                    <a
                       href={project.live}
                       className="p-3 bg-[#00ff41] text-black rounded-full hover:bg-[#00ff41]/90 transition-all duration-300 hover:scale-110 shadow-lg"
+                      target="_blank" rel="noopener noreferrer"
                     >
                       <ExternalLink size={20} />
                     </a>
                   </div>
                 </div>
-                
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3 text-white group-hover:text-[#00ff41] transition-colors duration-300">
                     {project.title}
@@ -90,10 +91,9 @@ const Portfolio = () => {
                   <p className="text-gray-400 mb-4 leading-relaxed">
                     {project.description}
                   </p>
-                  
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
-                      <span 
+                      <span
                         key={techIndex}
                         className="px-3 py-1 bg-[#00ff41]/10 text-[#00ff41] text-sm rounded-full border border-[#00ff41]/30 hover:bg-[#00ff41]/20 transition-colors duration-300"
                       >
@@ -102,17 +102,29 @@ const Portfolio = () => {
                     ))}
                   </div>
                 </div>
-                
                 {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00ff41]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00ff41]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      
       {/* Background decoration */}
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#00ff41]/3 rounded-full blur-3xl"></div>
+      {/* Fade-in animation */}
+      <style>{`
+        .animate-fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInPortfolio 1s cubic-bezier(.4,2,.3,1) forwards;
+        }
+        @keyframes fadeInPortfolio {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 };
