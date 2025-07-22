@@ -14,12 +14,12 @@ const Portfolio = () => {
       featured: true
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates',
+      title: 'Refokus',
+      description: 'Refokus is a top Webflow Agency combining high-end design with Webflow Development expertise.',
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
-      tech: ['Next.js', 'Socket.io', 'PostgreSQL', 'Prisma'],
+      tech: ['React.js', 'Animation'],
       github: '#',
-      live: '#',
+      live: 'https://refokuus.netlify.app',
       featured: false
     },
     {
