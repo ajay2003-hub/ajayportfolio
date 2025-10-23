@@ -34,11 +34,11 @@ const Hero = () => {
           </h1>
           
           <div className="text-xl md:text-2xl text-[#00ff41] mb-4 font-semibold drop-shadow-lg">
-            Full Stack Web Developer
+            Java Full Stack Developer
           </div>
           
           <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Crafting scalable web applications and modern interfaces using <span className="text-[#00ff41] font-semibold">MERN stack</span> & other cutting-edge technologies.
+            Crafting scalable web applications with <span className="text-[#00ff41] font-semibold">Spring Boot</span> backend and <span className="text-[#00ff41] font-semibold">React.js</span> frontend using cutting-edge technologies.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">

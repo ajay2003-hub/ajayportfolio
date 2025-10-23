@@ -8,30 +8,30 @@ const Skills = () => {
       category: 'Frontend',
       icon: '🎨',
       skills: [
-        { name: 'HTML/CSS', level: 95 },
-        { name: 'JavaScript', level: 90 },
-        { name: 'React.js', level: 88 },
-        { name: 'Next.js', level: 82 }
+        { name: 'React.js', level: 90 },
+        { name: 'JavaScript', level: 88 },
+        { name: 'HTML/CSS', level: 92 },
+        { name: 'Tailwind CSS', level: 85 }
       ]
     },
     {
       category: 'Backend',
       icon: '⚙️',
       skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Express.js', level: 83 },
-        { name: 'REST APIs', level: 88 },
-        { name: 'GraphQL', level: 75 }
+        { name: 'Java', level: 90 },
+        { name: 'Spring Boot', level: 88 },
+        { name: 'REST APIs', level: 90 },
+        { name: 'Hibernate', level: 82 }
       ]
     },
     {
       category: 'Database',
       icon: '🗄️',
       skills: [
-        { name: 'MongoDB', level: 86 },
+        { name: 'MySQL', level: 88 },
         { name: 'PostgreSQL', level: 80 },
-        { name: 'Redis', level: 70 },
-        { name: 'MySQL', level: 78 }
+        { name: 'MongoDB', level: 75 },
+        { name: 'JDBC', level: 85 }
       ]
     },
     {
@@ -39,9 +39,9 @@ const Skills = () => {
       icon: '🛠️',
       skills: [
         { name: 'Git/GitHub', level: 90 },
-        { name: 'Docker', level: 75 },
-        { name: 'AWS', level: 72 },
-        { name: 'CI/CD', level: 70 }
+        { name: 'Maven', level: 85 },
+        { name: 'Postman', level: 88 },
+        { name: 'Docker', level: 72 }
       ]
     }
   ];

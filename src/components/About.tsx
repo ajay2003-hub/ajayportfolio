@@ -11,7 +11,7 @@ const About = () => {
             {/* Left: Text, Cards, Skills */}
             <div className="flex-1 flex flex-col justify-center items-start text-left">
               <h2 className="text-4xl md:text-5xl font-bold mb-5 text-white animate-fade-in">About <span className="text-[#00ff41]">Me</span></h2>
-              <p className="text-lg text-gray-300 mb-8 max-w-xl">I'm a passionate Full Stack Developer with a strong foundation in both frontend and backend technologies. I specialize in building robust, performant, and scalable web applications using modern tools like React, Node.js, MongoDB, and Express.</p>
+              <p className="text-lg text-gray-300 mb-8 max-w-xl">Results-driven Java Full Stack Developer specializing in backend development with Spring Boot and RESTful APIs. Proficient in Java, React.js, MySQL, and scalable system design. Strong in Data Structures, Algorithms, and analytical problem-solving, with a focus on writing clean, efficient, and maintainable code.</p>
               {/* Cards */}
               <div className="grid grid-cols-2 gap-6 mb-8 w-full max-w-md">
                 <div className="text-center p-6 bg-zinc-900 rounded-xl border border-[#00ff41]/30 shadow group">
@@ -30,28 +30,28 @@ const About = () => {
                 <h3 className="text-xl font-semibold text-white mb-4">Skills</h3>
                 <div className="flex flex-wrap gap-6">
                   <div className="flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="w-10 h-10 mb-2" />
+                    <span className="text-[#00ff41] text-sm">Java</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" className="w-10 h-10 mb-2" />
+                    <span className="text-[#00ff41] text-sm">Spring Boot</span>
+                  </div>
+                  <div className="flex flex-col items-center">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-10 h-10 mb-2" />
-                    <span className="text-[#00ff41] text-sm">React</span>
+                    <span className="text-[#00ff41] text-sm">React.js</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-10 h-10 mb-2" />
-                    <span className="text-[#00ff41] text-sm">Node.js</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-10 h-10 mb-2" />
-                    <span className="text-[#00ff41] text-sm">MongoDB</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" className="w-10 h-10 mb-2 bg-white rounded-full p-1" />
-                    <span className="text-[#00ff41] text-sm">Express</span>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-10 h-10 mb-2" />
-                    <span className="text-[#00ff41] text-sm">TypeScript</span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" className="w-10 h-10 mb-2" />
+                    <span className="text-[#00ff41] text-sm">MySQL</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-10 h-10 mb-2" />
                     <span className="text-[#00ff41] text-sm">JavaScript</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-10 h-10 mb-2" />
+                    <span className="text-[#00ff41] text-sm">Git</span>
                   </div>
                 </div>
               </div>
