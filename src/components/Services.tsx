@@ -20,28 +20,28 @@ const Services = () => {
   const [active, setActive] = useState(-1);
   const services = [
     {
-      icon: Code,
-      title: 'Web Application Development',
-      description: 'Building modern, scalable web applications using cutting-edge technologies and best practices.',
-      features: ['React/Next.js', 'TypeScript', 'Responsive Design']
-    },
-    {
       icon: Database,
-      title: 'API & Backend Architecture',
-      description: 'Designing robust backend systems and RESTful APIs that power seamless user experiences.',
-      features: ['Node.js/Express', 'Database Design', 'Authentication']
+      title: 'Backend Development',
+      description: 'Building robust, scalable backend systems with Spring Boot and RESTful APIs.',
+      features: ['Spring Boot', 'REST APIs', 'Microservices']
     },
     {
-      icon: Smartphone,
-      title: 'Responsive UI Design',
-      description: 'Creating pixel-perfect, mobile-first interfaces that work flawlessly across all devices.',
-      features: ['Mobile-First', 'Cross-Browser', 'Performance']
+      icon: Code,
+      title: 'Full Stack Development',
+      description: 'End-to-end web application development with Java backend and React frontend.',
+      features: ['Java/Spring', 'React.js', 'MySQL']
     },
     {
       icon: Zap,
-      title: 'Performance Optimization',
-      description: 'Optimizing applications for speed, efficiency, and superior user experience.',
-      features: ['Code Splitting', 'Caching', 'SEO Ready']
+      title: 'System Design & Architecture',
+      description: 'Designing scalable, maintainable systems with best practices and design patterns.',
+      features: ['Clean Code', 'Design Patterns', 'Scalability']
+    },
+    {
+      icon: Smartphone,
+      title: 'API Integration',
+      description: 'Creating and integrating secure, efficient APIs for seamless data flow.',
+      features: ['RESTful APIs', 'Authentication', 'Security']
     }
   ];
 

@@ -11,37 +11,51 @@ const Skills = () => {
         { name: 'React.js', level: 90 },
         { name: 'JavaScript', level: 88 },
         { name: 'HTML/CSS', level: 92 },
-        { name: 'Tailwind CSS', level: 85 }
+        { name: 'Tailwind CSS', level: 85 },
+        { name: 'Bootstrap', level: 82 }
       ]
     },
     {
       category: 'Backend',
       icon: '⚙️',
       skills: [
-        { name: 'Java', level: 90 },
-        { name: 'Spring Boot', level: 88 },
+        { name: 'Java', level: 92 },
+        { name: 'Spring Boot', level: 90 },
+        { name: 'Spring MVC', level: 88 },
         { name: 'REST APIs', level: 90 },
-        { name: 'Hibernate', level: 82 }
+        { name: 'Hibernate/JPA', level: 85 },
+        { name: 'Microservices', level: 80 }
       ]
     },
     {
       category: 'Database',
       icon: '🗄️',
       skills: [
-        { name: 'MySQL', level: 88 },
-        { name: 'PostgreSQL', level: 80 },
+        { name: 'MySQL', level: 90 },
+        { name: 'PostgreSQL', level: 82 },
         { name: 'MongoDB', level: 75 },
-        { name: 'JDBC', level: 85 }
+        { name: 'JDBC', level: 88 }
       ]
     },
     {
-      category: 'Tools & Others',
+      category: 'DSA & Core',
+      icon: '🧠',
+      skills: [
+        { name: 'Data Structures', level: 88 },
+        { name: 'Algorithms', level: 85 },
+        { name: 'OOP', level: 92 },
+        { name: 'System Design', level: 80 }
+      ]
+    },
+    {
+      category: 'Tools & DevOps',
       icon: '🛠️',
       skills: [
         { name: 'Git/GitHub', level: 90 },
-        { name: 'Maven', level: 85 },
-        { name: 'Postman', level: 88 },
-        { name: 'Docker', level: 72 }
+        { name: 'Maven/Gradle', level: 85 },
+        { name: 'Postman', level: 90 },
+        { name: 'Docker', level: 75 },
+        { name: 'Jenkins', level: 70 }
       ]
     }
   ];

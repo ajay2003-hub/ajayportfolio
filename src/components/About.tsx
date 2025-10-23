@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Code2, Globe, Zap } from 'lucide-react';
+import profilePhoto from '@/assets/profile-photo.jpeg';
 
 const About = () => {
   return (
@@ -61,8 +62,8 @@ const About = () => {
               <div className="relative">
                 {/* Profile image with animation */}
                 <img
-                  src="/lovable-uploads/880fdf99-648d-4fd8-8263-af19d15256fc.png"
-                  alt="Ajay Kumar"
+                  src={profilePhoto}
+                  alt="Ajay Kumar - Java Full Stack Developer"
                   className="w-96 h-96 object-cover rounded-full shadow-2xl animate-image-slide-in"
                   style={{ position: 'relative', zIndex: 1 }}
                 />
