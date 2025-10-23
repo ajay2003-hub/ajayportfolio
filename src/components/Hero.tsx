@@ -21,7 +21,7 @@ const Hero = () => {
   }, []);
 
   const handleDownloadCV = () => {
-    window.open('http://127.0.0.1:5500/resume.html', '_blank');
+    window.open('https://app.enhancv.com/share/f3c8bdcf/?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic', '_blank');
   };
 
   return (
