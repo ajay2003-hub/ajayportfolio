@@ -32,12 +32,6 @@ const Services = () => {
       features: ['Java/Spring', 'React.js', 'MySQL']
     },
     {
-      icon: Zap,
-      title: 'System Design & Architecture',
-      description: 'Designing scalable, maintainable systems with best practices and design patterns.',
-      features: ['Clean Code', 'Design Patterns', 'Scalability']
-    },
-    {
       icon: Smartphone,
       title: 'API Integration',
       description: 'Creating and integrating secure, efficient APIs for seamless data flow.',

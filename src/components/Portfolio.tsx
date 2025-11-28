@@ -8,7 +8,7 @@ const Portfolio = () => {
       title: 'Collaborative Study Planner',
       description: 'A comprehensive study planning platform with group collaboration features',
       image: '/lovable-uploads/5dde20b4-c9ce-45bc-a44d-da86264477f0.png',
-      tech: ['React', 'Node.js', 'PostgreSQL', 'Socket.io'],
+      tech: ['HTML', 'CSS', 'JavaScript', 'Animation'],
       github: 'https://github.com/ajay2003-hub/studyCollabUI',
       live: 'https://lucky-narwhal-e9b91a.netlify.app',
       featured: true
