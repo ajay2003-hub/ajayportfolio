@@ -24,12 +24,12 @@ const Portfolio = () => {
       featured: false
     },
     {
-      title: 'Weather App',
-      description: 'Real-time weather application with location-based forecasts',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop',
-      tech: ['Vue.js', 'OpenWeather API', 'Tailwind CSS'],
-      github: 'https://github.com/ajay2003-hub/wheatherApp',
-      live: 'https://cloudpointapp.netlify.app',
+      title: 'Movieist-FullStack',
+      description: 'A full-stack movie streaming platform with secure authentication and user watchlist management',
+      image: '/lovable-uploads/movieist-fullstack.png',
+      tech: ['Spring Boot', 'Spring Security', 'JWT', 'React'],
+      github: 'https://github.com/ajay2003-hub/movieist',
+      live: 'https://movie4u-api.netlify.app',
       featured: true
     }
   ];
