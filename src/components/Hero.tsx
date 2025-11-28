@@ -21,7 +21,12 @@ const Hero = () => {
   }, []);
 
   const handleDownloadCV = () => {
-    window.open('https://app.enhancv.com/share/f3c8bdcf/?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic', '_blank');
+    const link = document.createElement('a');
+    link.href = '/Ajay-Resume.pdf';
+    link.download = 'Ajay-Kumar-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
